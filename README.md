@@ -13,6 +13,17 @@ yarn dlx skills add https://github.com/flyme2bluemoon/skills
 bunx --bun skills add https://github.com/flyme2bluemoon/skills
 ```
 
+## notes for certain skills
+
+### html-communication
+
+This skill by default writes to HTML artifacts to a local directory. To configure it, run the following.
+
+```
+mkdir -p ~/.config/matthew-skills
+echo 'ARTIFACTS_DIR="$HOME/Developer/postplan/artifacts"' > ~/.config/matthew-skills/config
+```
+
 ## credits
 
 Many of my skills are ~~stolen~~ heavily inspired from the following:
