@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specs"
+  short_description: "Maintain living project specifications"
+  default_prompt: "Use $specs to create or update the applicable project specification."

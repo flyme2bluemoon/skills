@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domain Modeling"
+  short_description: "Build and maintain shared project language"
+  default_prompt: "Use $domain-modeling to create or update this project's CONTEXT.md."

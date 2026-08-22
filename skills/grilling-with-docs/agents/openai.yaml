@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grilling with Docs"
+  short_description: "Resolve a design, then write its project docs"
+  default_prompt: "Use $grilling-with-docs to interview me about this project design and document the confirmed result."
