@@ -30,4 +30,5 @@ Many of my skills are ~~stolen~~ heavily inspired from the following:
 
 - [pstack](https://github.com/cursor/plugins/tree/main/pstack) by poteto
 - [Skills by Matt Pocock](https://github.com/mattpocock/skills)
+- [anti-slop](https://github.com/dmmulroy/anti-slop) by Dillon Mulroy
 - `html-communication` and `postplan-read`, inspired by [Theo's video](https://www.youtube.com/watch?v=e1snsuY4lTI&t=560s)

@@ -64,6 +64,14 @@ Loosely based on upstream `to-spec`, but built for a different specification lif
 
 No changes.
 
+## anti-slop
+
+Github: https://github.com/dmmulroy/anti-slop/tree/main/skills/install-anti-slop
+
+### install-anti-slop
+
+The installation workflow, script, and bundled Oxlint plugin are unchanged. The local copy is explicit-only in Claude Code and Codex because it is a one-time repository setup skill.
+
 ## Theo's SKILLS.md video
 
 These skills were rewritten using many of the ideas from his video.
