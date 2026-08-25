@@ -6,6 +6,10 @@ This file outlines how the skills differ from their upstream counterparts.
 
 Github: https://github.com/cursor/plugins/tree/main/pstack/skills
 
+### bro
+
+No changes.
+
 ### unslop
 
 No changes.
