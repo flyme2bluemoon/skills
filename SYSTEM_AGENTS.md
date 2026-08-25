@@ -12,6 +12,40 @@
 - Do not add/install any packages without explicit permission. If you want to install something, ask me for permission before installing it.
 - Comments document how code is used, not to be used to annotate every line of code. Use comments sparingly. Write code that documents itself.
 
+## Principle skills
+
+The `principle-*` skills are short decision guides, one rule each. At the start of any nontrivial or multi-step task, walk every branch below. The branches overlap, so follow every branch whose trigger matches. A possible match is enough: if a principle might apply, invoke it and use the full skill to decide. Read each invoked skill in full before making the decision it governs. Walk the tree again when the task changes during planning, implementation, debugging, review, or verification.
+
+- **Are you deciding what to build or how much change the task deserves?**
+    - Any nontrivial edit, migration, analysis, or check? Invoke the Skill tool call with `principle-build-the-lever` so the work or its proof becomes a rerunnable tool instead of a hand-done result.
+    - Adding, refactoring, or rewriting a system? Invoke the Skill tool call with `principle-subtract-before-you-add` to remove dead weight before choosing the new shape.
+    - Refactoring, sizing a diff, adding layers, introducing abstractions, or threading a signal through the system? Invoke the Skill tool call with `principle-laziness-protocol` to find the smallest maintainable change, with deletion as the first option.
+    - Integrating a new requirement into an existing design? Invoke the Skill tool call with `principle-redesign-from-first-principles` so the result looks intentional rather than bolted on.
+    - About to write logic, choose core types or data structures, decide what concurrent actors share, or sequence setup work against feature work? Invoke the Skill tool call with `principle-foundational-thinking` to preserve options and make later logic simpler.
+    - Making a product, UX, API-consumer, maintainer-experience, or feature-scope tradeoff? Invoke the Skill tool call with `principle-experience-first` to optimize the result for the people who use it rather than for implementation convenience.
+    - Choosing a novel UI interaction or architecture with no clear codebase precedent? Invoke the Skill tool call with `principle-exhaust-the-design-space` to compare genuinely different concrete options before committing.
+    - Running a planned rewrite or migration with explicit phases? Invoke the Skill tool call with `principle-outcome-oriented-execution` to converge on the target design without accumulating throwaway compatibility work.
+
+- **Are you shaping code, data, boundaries, or state?**
+    - Writing stateful logic, extending repeated branching, or repeating shape assumptions across files? Invoke the Skill tool call with `principle-model-the-domain` to encode the rules in one domain structure.
+    - Handling external input, validation, errors, configuration, transport, storage, CLI wiring, or framework adapters? Invoke the Skill tool call with `principle-boundary-discipline` to validate at the edge and keep internal logic typed and direct.
+    - Writing or reviewing code in a statically typed language, especially types, function signatures, external-data parsing, casts, variants, or schema-derived models? Invoke the Skill tool call with `principle-type-system-discipline` to move invalid states and missing cases into compile-time failures.
+    - Designing a command, lifecycle operation, worker, or loop that may retry, restart, or resume after a partial failure? Invoke the Skill tool call with `principle-make-operations-idempotent` so repeated execution converges on one end state.
+    - Replacing an internal API while callers still use the old one? Invoke the Skill tool call with `principle-migrate-callers-then-delete-legacy-apis` to complete the migration in one wave and avoid parallel contracts.
+    - Allowing concurrent actors to touch the same file, branch, key, resource, or state object? Invoke the Skill tool call with `principle-separate-before-serializing-shared-state` to remove shared mutation before considering locks or sequencing.
+    - Reviewing or changing code that is hard to trace, has pass-through layers, one-caller wrappers, or broad mutable state? Invoke the Skill tool call with `principle-minimize-reader-load` to reduce indirection and the state a reader must remember.
+
+- **Are you executing, debugging, coordinating, or learning from the work?**
+    - Investigating a bug, failure, flaky behavior, or surprising state? Invoke the Skill tool call with `principle-fix-root-causes` to reproduce the symptom and fix the mechanism that creates it.
+    - Performing a sweep, migration, run of similar edits, or a stack of commits or PRs? Invoke the Skill tool call with `principle-sequence-verifiable-units` so each small unit ends in a check before the next begins.
+    - Handling large outputs, long files, repeated reads, broad exploration, or parallel fan-out that could crowd the main context? Invoke the Skill tool call with `principle-guard-the-context-window` to isolate bulk work and retain only decision-relevant findings.
+    - About to ask the human for permission or direction on reversible execution work? Invoke the Skill tool call with `principle-never-block-on-the-human` to make a reasonable choice, proceed, and present the result for asynchronous correction.
+    - Repeating an instruction, seeing the same correction again, or finding a rule future work could violate? Invoke the Skill tool call with `principle-encode-lessons-in-structure` to turn the lesson into an enforceable mechanism.
+
+- **Are you about to report that work is complete or correct?** Invoke the Skill tool call with `principle-prove-it-works` to inspect or exercise the real artifact and verify the full path rather than relying on a proxy such as compilation or a self-report.
+
+Treat a principle name from the user as a direct trigger. In the final response, name each principle that materially shaped the work and state the specific decision it changed. A citation without a changed decision does not count as applying it.
+
 ## Writing Style Guide
 
 You should speak with a human voice and remove the AI patterns below.
