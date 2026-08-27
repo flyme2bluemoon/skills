@@ -45,28 +45,15 @@ Keeps the upstream design-tree model, frontier-based question rounds, recommenda
 
 ### grilling-with-docs
 
-This is a full redesign of upstream `grill-with-docs`. The upstream skill is a thin router that invokes `grilling` and `domain-modeling`, which can produce glossary entries and ADRs during the interview. The adaptation is an orchestrated workflow over `grilling`, `domain-modeling`, and `specs`:
+This is a full redesign of upstream `grill-with-docs`. The upstream skill is a thin router that invokes `grilling` and `domain-modeling`, which can produce glossary entries and ADRs during the interview. The adaptation is an orchestrated workflow over `grilling` and `domain-modeling`:
 
-- It reads existing context, specifications, and relevant code before and after the interview.
+- It reads existing context and relevant code before and after the interview.
 - It keeps all proposed documentation changes in the conversation until the design tree is closed and the user confirms the final summary.
-- It writes the confirmed domain language to `CONTEXT.md` and goal-state requirements to `docs/specs/*.md`. It does not use ADRs.
+- It writes confirmed domain language to `CONTEXT.md`. It does not use ADRs.
 - It can be selected through its description like an ordinary skill. The local upstream copy disables model invocation and must be called explicitly.
 - A conflict found before writing reopens the interview and requires another confirmation.
 - Partial or discarded interviews do not change documentation.
-- Documentation is updated only where the confirmed decisions belong. The workflow does not create placeholder files and does not implement the design.
-
-### specs
-
-Loosely based on upstream `to-spec`, but built for a different specification lifecycle. `to-spec` synthesizes the current conversation into a fixed feature template, checks testing seams with the user, and publishes the result to an issue tracker with a triage label. `specs` instead manages living files under `docs/specs/`:
-
-- Specifications are prescriptive descriptions of the intended goal state, not issue records, implementation inventories, or append-only decision logs.
-- The skill can create, maintain, inspect, or apply a specification during planning, implementation, and review.
-- It prefers updating an applicable specification in place and removes superseded requirements instead of preserving decision history.
-- The code and specification are independent sources for current behavior and intended behavior. A mismatch is surfaced as a conflict rather than resolved by rewriting the spec to match the code.
-- Only explicit user decisions may become requirements. Recommendations, unanswered questions, and tentative ideas stay out.
-- It uses a flexible project-file format rather than `to-spec`'s required problem, solution, user-story, implementation, testing, and scope sections.
-- It has no issue-tracker, setup-skill, triage-label, or mandatory testing-seam dependency.
-- It can be selected through its description during specification work. The local `to-spec` copy disables model invocation and only runs when explicitly called.
+- Context documentation is updated only where the confirmed domain language belongs. The workflow does not create placeholder files and does not implement the design.
 
 ### writing-for-agents
 

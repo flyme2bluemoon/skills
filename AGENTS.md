@@ -18,7 +18,6 @@ For adapted skills, a paper trail means durable working context, decisions, or s
 - `AGENTS.md` for agent instructions. `CLAUDE.md` includes this file, so `AGENTS.md` is the source of truth.
 - `CONTEXT.md` for project or domain context.
     - `CONTEXT-MAP.md` for routing agents to the relevant `CONTEXT.md` when a repository has more than one context.
-- `docs/specs/*.md` for living, prescriptive specifications. These record the user's decisions about the goal state, including intended behavior, architecture, boundaries, and contracts. Consult an applicable spec when planning, implementing, or reviewing what it specifies. Treat it as a read-only requirement unless the user explicitly makes a decision or directly requests an edit. Inspect the code to learn current behavior and implementation details. Agents may identify conflicts and propose changes. Update existing specs in place rather than accumulating a decision history.
 
 These approaches are deferred. Do not use them by default, but they are not permanently rejected:
 
