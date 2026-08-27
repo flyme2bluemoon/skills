@@ -5,7 +5,7 @@ description: Create standalone HTML write-ups or UI mocks for the user. Use for 
 
 # HTML communication
 
-Create a self-contained HTML document that the user can read outside the terminal or chat thread.
+Create a standalone HTML document that the user can read outside the terminal or chat thread.
 
 ## Artifact location
 
@@ -31,15 +31,34 @@ Use the `unslop` skill to write and edit prose in the HTML artifact.
 Write for the user. Make the document read like a clear spec or report, with direct language and an information-first layout. Favor useful headings, short paragraphs, lists, tables, callouts, and diagrams when they make the subject easier to understand.
 
 - Use semantic HTML.
-- Keep CSS inline in the file.
+- Keep custom CSS inline in the file.
 - Use inline SVG for diagrams and small graphics.
 - Prefer to embed images with a data-URL or link to image online.
 - Use inline JavaScript only when interaction makes the content easier to understand.
-- Keep all scripts and modules inline in the file.
+- Keep custom scripts and modules inline in the file.
 - Give external links `target="_blank"` and `rel="noopener noreferrer"`.
 - Make the document readable at desktop and mobile widths.
 
 Choose the structure and visual treatment to fit the material. The file should stand on its own and retain the context a reader needs.
+
+### Tailwind and diagrams
+
+Use Tailwind via CDN for layout and styling:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+```
+
+Use Mermaid via CDN when a graph, flow, or sequence communicates relationships more clearly than prose:
+
+```html
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
+```
+
+Mix Mermaid with hand-crafted HTML, CSS, and inline SVG. Use Mermaid for graph-shaped relationships such as call graphs, dependencies, flows, and sequences. Use hand-built visuals for editorial forms such as mass diagrams, cross-sections, and collapse comparisons. When the caller asks for before-and-after visualisations, make each comparison prominent and easy to scan. Be visual when the structure carries information that prose would hide.
 
 ### UI mocks
 
