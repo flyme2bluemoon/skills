@@ -59,6 +59,24 @@ This is a full redesign of upstream `grill-with-docs`. The upstream skill is a t
 
 No changes.
 
+### codebase-design
+
+Keeps the upstream deep-module vocabulary, deletion test, seam discipline, dependency categories, and design-it-twice comparison. The adaptation changes invocation and agent coordination:
+
+- Model invocation is disabled for both Claude Code and Codex.
+- Other local skills read it through a relative file reference instead of relying on a runtime-specific skill call.
+- Design-it-twice uses parallel subagents when the agent supports them and sequential independent designs otherwise.
+
+### improve-codebase-architecture
+
+Keeps the upstream hotspot-led scan, friction questions, deletion test, candidate cards, visual comparison, and recommendation strengths. The adaptation narrows the workflow and makes it portable:
+
+- The skill is a project-read-only survey. It stops after the report and does not grill, edit `CONTEXT.md`, create ADRs, propose interfaces, or implement a candidate.
+- It reads the local `codebase-design` adaptation through a relative file reference rather than a runtime-specific skill call.
+- Codebase exploration uses available tools, with delegation optional rather than requiring a particular subagent command.
+- Every report uses the local `html-communication` skill. That skill owns the Tailwind CDN, Mermaid CDN, and visual-report guidance; the upstream temp-directory, browser-opening, and `HTML-REPORT.md` workflow is removed.
+- Model invocation is disabled for both Claude Code and Codex.
+
 ## anti-slop
 
 Github: https://github.com/dmmulroy/anti-slop/tree/main/skills/install-anti-slop
