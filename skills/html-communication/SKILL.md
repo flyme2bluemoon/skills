@@ -26,7 +26,7 @@ When the user provides an artifact path, use it. Otherwise, source the config an
 
 ## Write the artifact
 
-Use the `unslop` skill to write and edit prose in the HTML artifact.
+You must use the `unslop` skill whenever you write or edit prose in the HTML artifact.
 
 Write for the user. Make the document read like a clear spec or report, with direct language and an information-first layout. Favor useful headings, short paragraphs, lists, tables, callouts, and diagrams when they make the subject easier to understand.
 

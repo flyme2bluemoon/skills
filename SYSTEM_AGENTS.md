@@ -9,6 +9,7 @@
 - Prefer to use pnpm unless the project is clearly using a different JS package manager.
 - When a project is using Tailwind, make sure to use it rather than raw CSS. When using Tailwind, make sure you use canonical classes, arbitrary values should be used sparingly only when there is a good reason to do so. Theme variables should be used where appropriate for enforcing a consistent design system (e.g., color palettes, fonts, font sizes, etc).
 - Do not use `any` when working in TypeScript
+- Git commit messages should be one-liners.
 - Do not add/install any packages without explicit permission. If you want to install something, ask me for permission before installing it.
 - Comments document how code is used, not to be used to annotate every line of code. Use comments sparingly. Write code that documents itself.
 
