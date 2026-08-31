@@ -7,6 +7,10 @@
     - When there is no change, just state "No changes."
     - If the reference skill source is not consulted and only ideas are used, some variant of "These skills were rewritten using many of the ideas [insert source]." will suffice
 
+## Skill-to-skill invocation
+
+- Use `Call the Skill tool with "<skill-name>"` when one skill invokes another only if the target skill is model-invocable. A user-invoked skill cannot be discovered or called through the Skill tool; only the user can invoke it. If an agent must invoke a workflow dependency, make that dependency model-invocable. Use relative links for reference documents, not as a substitute for invoking a workflow.
+
 ## Guidelines for adapting Matt Pocock skills
 
 - Many of Matt Pocock's skills rely on each other. When the user asks you to create a skill based on one of them, check whether its dependencies are already present in `skills/`. Read existing adaptations because they may differ from Matt Pocock's versions. If a dependency has not been adapted, consider whether the user should create it first.

@@ -6,17 +6,21 @@ The skill-specific branch of [`writing-for-agents`](SKILL.md): what changes when
 
 Two choices, trading the two loads:
 
-- A **model-invoked** skill keeps a `description`, so the agent can fire it autonomously, and other skills can reach it. You can still type its name: model-invocation always _includes_ user reach; a description only ever adds agent discovery, never removes the human's. The description is the skill's top-level context pointer, forced to stay loaded at all times: permanent context load in exchange for discoverability. A model-invoked skill whose content is all reference is also one home for shared reference: another skill can invoke it, so reference needed by several skills lives in one place. Mechanics: omit `disable-model-invocation`, and write a model-facing description carrying the trigger branches (the pointer-writing rules in `SKILL.md` apply in full).
-- A **user-invoked** skill strips the description from the agent's reach: only the human typing its name can invoke it, and no other skill can. Zero context load, but it spends cognitive load: you are the index that must remember it exists. Mechanics: set `disable-model-invocation: true`; the `description` becomes human-facing: a one-line summary, trigger lists stripped.
+- A **model-invocable** skill lets the agent discover it on its own and call it through the Skill tool. The user can still invoke it by name. Its description is a model-facing context pointer, so permanent context load buys discovery and skill-to-skill invocation. Mechanics: omit `disable-model-invocation` and omit `policy.allow_implicit_invocation: false`. Write a model-facing description carrying the trigger branches (the pointer-writing rules in `SKILL.md` apply in full).
+- A **user-invoked** skill can only be invoked by the human. The model cannot discover it on its own or call it through the Skill tool. This removes its description from the model's context and spends cognitive load instead: the human must remember the skill exists and invoke it by name. Mechanics: set `disable-model-invocation: true` and `policy.allow_implicit_invocation: false`. The description becomes a human-facing one-line summary with its trigger list stripped.
 
-Pick model-invocation only when the agent must reach the skill on its own, or another skill must. If it only ever fires by hand, make it user-invoked and pay no context load.
+Use model invocation when the agent must be able to discover the skill on its own, or another skill references it. Use user invocation when only the human should start it.
 
-Shared reference that two user-invoked skills both need can live in neither: with no descriptions, neither can fire the other. Push it to a plain file outside the skill system: external reference any skill can point at.
+### Skill-to-skill invocation
+
+Use `Call the Skill tool with "<skill-name>"` only when the target skill is model-invocable. A user-invoked skill cannot be called through the Skill tool. If an agent must invoke a workflow dependency, make the target model-invocable. If the shared material is reference rather than a workflow, put it in a plain file and link to that file.
+
+Do not replace workflow invocation with a relative link to the target's `SKILL.md`. A link discloses reference material; the Skill tool starts a workflow.
 
 ## Splitting by invocation
 
-The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split off a model-invoked skill when you have a distinct leading word that should trigger it on its own (a trigger word you actually use in your prompts), or another skill must reach it. You pay context load for the new always-loaded description, so that independent reach has to be worth it.
+The invocation cut of splitting (the sequence cut lives in `SKILL.md`): split off a model-invocable skill when you have a distinct leading word that should trigger it on its own (a trigger word you actually use in your prompts), or another skill must invoke it. You pay context load for the model-facing description, so that reach has to be worth it.
 
 ## Router skills
 
-When user-invoked skills multiply past what you can remember, that piled-up cognitive load is cured by a **router skill**: one user-invoked skill that names the others and when to reach for each, so the human has one skill to remember instead of many. It can only hint, never fire them: user-invoked skills have no description, so nothing but the human can reach them.
+When user-invoked skills multiply past what you can remember, a **router skill** can name them and tell the human which one to invoke. It can only hint, never call them. If the router must start a target itself, make that target model-invocable.

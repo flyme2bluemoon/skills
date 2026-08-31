@@ -57,7 +57,10 @@ This is a full redesign of upstream `grill-with-docs`. The upstream skill is a t
 
 ### writing-for-agents
 
-No changes.
+The main `SKILL.md` and `agents/openai.yaml` are unchanged. The adaptation changes only `SKILL-MECHANICS.md`:
+
+- It pairs `disable-model-invocation: true` with `policy.allow_implicit_invocation: false` when defining a user-invoked skill. Model-invocable skills are discoverable and callable through the Skill tool; user-invoked skills are neither.
+- Skill-to-skill workflows use `Call the Skill tool with "<skill-name>"`, and only model-invocable skills can be targets. A relative link discloses reference material rather than invoking a workflow.
 
 ### codebase-design
 
