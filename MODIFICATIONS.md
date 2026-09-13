@@ -6,15 +6,7 @@ This file outlines how the skills differ from their upstream counterparts.
 
 Github: https://github.com/cursor/plugins/tree/main/pstack/skills
 
-### bro
-
-No changes.
-
-### unslop
-
-No changes.
-
-### principle-\* (21 skills)
+### pstack-principle-\* (21 skills)
 
 The 21 principle skills have `disable-model-invocation: true` removed from each skill so Codex and Claude Code can invoke the matching principle automatically. `SYSTEM_AGENTS.md` also provides a broad, multi-select decision tree that routes agents to applicable principles.
 

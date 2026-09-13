@@ -15,9 +15,9 @@ bunx --bun skills add https://github.com/flyme2bluemoon/skills
 
 ## notes for certain skills
 
-### unslop
+### pstack-unslop
 
-Claude seems be less eager to call the unslop tool compared to Codex so you may need to add something like this to your `{CLAUDE,AGENTS}.md`: "Before you respond to the user, you must always call the Skill tool with `unslop`."
+Claude seems be less eager to call the pstack-unslop tool compared to Codex so you may need to add something like this to your `{CLAUDE,AGENTS}.md`: "Before you respond to the user, you must always call the Skill tool with `pstack-unslop`."
 
 ### html-communication
 

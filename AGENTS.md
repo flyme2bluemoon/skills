@@ -4,8 +4,8 @@
 
 - When creating a new skill based on a reference skill that someone else has created, make sure to add it to `MODIFICATIONS.md` to explain how our version differs from the reference skill.
     - The modifications should be described at a high level. much of the wording is the same, just outline what differences there are. If the skill was completely different, explain the different behaviours in the skills and the different architectural decisions surrounding the skill's design.
-    - When there is no change, just state "No changes."
     - If the reference skill source is not consulted and only ideas are used, some variant of "These skills were rewritten using many of the ideas [insert source]." will suffice
+    - Omit a skill from `MODIFICATIONS.md` when it has no behavioral differences from the reference.
 
 ## Skill-to-skill invocation
 
@@ -37,4 +37,5 @@ Treat any other paper trail as unevaluated. Redesign around the approved files o
 
 ## Guidelines for adapting pstack skills
 
+- Prefix every skill copied or adapted from pstack with `pstack-` in both its directory name and frontmatter `name` (for example, `unslop` becomes `pstack-unslop`).
 - Many of Lauren's pstack skills are Cursor specific. Make sure that they are made to work with the tools I use: Codex and Claude Code. However, I still want my skills to be written in a way where they are very portable to any AI agent that I may want to test out.
