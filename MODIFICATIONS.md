@@ -58,8 +58,8 @@ The main `SKILL.md` and `agents/openai.yaml` are unchanged. The adaptation chang
 
 Keeps the upstream deep-module vocabulary, deletion test, seam discipline, dependency categories, and design-it-twice comparison. The adaptation changes invocation and agent coordination:
 
-- Model invocation is disabled for both Claude Code and Codex.
-- Other local skills read it through a relative file reference instead of relying on a runtime-specific skill call.
+- Model invocation is enabled so other local skills can call it through the Skill tool convention.
+- Users can still invoke it explicitly in both Claude Code and Codex.
 - Design-it-twice uses parallel subagents when the agent supports them and sequential independent designs otherwise.
 
 ### improve-codebase-architecture

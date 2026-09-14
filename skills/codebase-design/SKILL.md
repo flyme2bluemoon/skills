@@ -1,7 +1,6 @@
 ---
 name: codebase-design
 description: Design deep modules with small interfaces, clean seams, and tests through the interface.
-disable-model-invocation: true
 ---
 
 # Codebase Design
