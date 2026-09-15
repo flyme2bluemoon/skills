@@ -38,10 +38,13 @@ The `pstack-principle-*` skills are short decision guides, one rule each. At the
 
 - **Are you executing, debugging, coordinating, or learning from the work?**
     - Investigating a bug, failure, flaky behavior, or surprising state? Invoke the Skill tool call with `pstack-principle-fix-root-causes` to reproduce the symptom and fix the mechanism that creates it.
+    - Have two or more fixes based on the same premise failed the same gate? Call the Skill tool with `pstack-principle-attack-the-premise` to record the premise, measure which actors hold the imbalance, and question the premise before attempting another fix.
     - Performing a sweep, migration, run of similar edits, or a stack of commits or PRs? Invoke the Skill tool call with `pstack-principle-sequence-verifiable-units` so each small unit ends in a check before the next begins.
     - Handling large outputs, long files, repeated reads, broad exploration, or parallel fan-out that could crowd the main context? Invoke the Skill tool call with `pstack-principle-guard-the-context-window` to isolate bulk work and retain only decision-relevant findings.
     - About to ask the human for permission or direction on reversible execution work? Invoke the Skill tool call with `pstack-principle-never-block-on-the-human` to make a reasonable choice, proceed, and present the result for asynchronous correction.
     - Repeating an instruction, seeing the same correction again, or finding a rule future work could violate? Invoke the Skill tool call with `pstack-principle-encode-lessons-in-structure` to turn the lesson into an enforceable mechanism.
+
+- **Are you writing, changing, or deciding whether to keep a test?** Call the Skill tool with `pstack-principle-test-behavior-not-implementation` to exercise code through its user-facing interface and assert a literal observable result.
 
 - **Are you about to report that work is complete or correct?** Invoke the Skill tool call with `pstack-principle-prove-it-works` to inspect or exercise the real artifact and verify the full path rather than relying on a proxy such as compilation or a self-report.
 
@@ -49,36 +52,22 @@ Treat a principle name from the user as a direct trigger. In the final response,
 
 ## Writing Style Guide
 
-You should speak with a human voice and remove the AI patterns below.
+Edit text to remove AI patterns.
 
-### How to speak
+### Process
 
-1. Scan the anti-patterns below.
-2. Rewrite, preserve original meaning, and match intended tone.
-3. Add soul
-4. Self-audit: "What makes this obviously AI generated?" and remove those tells.
+1. Scan for the patterns below.
+2. Rewrite. Preserve meaning, match intended tone.
+3. Self-audit: "What makes this obviously AI generated?" Fix remaining tells.
 
-### Adding soul
+### Patterns to detect and fix
 
-Adding soul means your writing is not sterile or voiceless. To this end:
-
-- **Have opinions.** React to facts instead of neutrally listing pros and cons.
-- **Vary rhythm.** Short sentences. Then longer ones that take their time. Mix it up.
-- **Acknowledge complexity.** "Impressive but also kind of unsettling" beats "impressive."
-- **Use "I" when it fits.** First person isn't unprofessional.
-- **Let some mess in.** Perfect structure looks machine-made.
-- **Be specific.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am."
-
-### Anti-patterns to remove and avoid
+Rule numbers are stable ids that other skills cite. A removed rule leaves a gap.
 
 #### Content
 
-1. **Puffery.** "pivotal moment", "testament to", "evolving landscape", "setting the stage for", "indelible mark", "deeply rooted". Cut puffery, state what happened.
-2. **Name-dropping.** Listing media outlets without context. Pick one, say what was said.
 3. **Superficial -ing phrases.** "highlighting...", "ensuring...", "reflecting...", "showcasing...", "fostering...". Delete or expand with real sources.
-4. **Promotional language.** "nestled", "vibrant", "breathtaking", "groundbreaking", "renowned", "stunning", "must-visit". Use neutral descriptions.
-5. **Vague attributions.** "Experts believe", "Industry reports suggest", "Some critics argue". Name the source or delete.
-6. **Formulaic challenges.** "Despite challenges... continues to thrive." Replace with specific facts.
+4. **Vague attributions.** "Experts believe", "Industry reports suggest", "Some critics argue". Name the source or delete.
 
 #### Language
 
@@ -91,7 +80,7 @@ Adding soul means your writing is not sterile or voiceless. To this end:
 
 #### Style
 
-13. **Em dash overuse.** Avoid em dashes entirely. Use periods or commas only (no parentheses, no en dashes, no hyphen-as-dash substitutes). Em dashes are an AI tell, and reaching for parentheses instead just trades one tell for another. If a thought needs separation, end the sentence or use a comma.
+13. **Em dash overuse.** Avoid em dashes entirely. Use periods or commas only (no parentheses, no en dashes, no hyphen-as-dash substitutes). If a thought needs separation, end the sentence or use a comma.
 14. **Colon overuse.** Colons are fine before a list or example. Not as mid-sentence connectors. "If you're coming from traditional automation: instead of registering event handlers, you describe conditions" adds nothing with the colon. Rewrite to let the point stand on its own without comparison framing. "Describing when the scheduler should fire works best as plain English." Same meaning, no crutch punctuation.
 15. **Boldface overuse.** Don't bold every proper noun or acronym.
 16. **Inline-header lists.** The tell is a bold label and colon that restates the line: "**Performance:** Performance improved...". Convert those to prose. A bold lead-in that ends in a period, names the item, and is followed by genuinely new detail ("**Schema in TypeScript.** Tables live in one file.") is fine, not a tell.
@@ -102,8 +91,7 @@ Adding soul means your writing is not sterile or voiceless. To this end:
 #### Communication artifacts
 
 20. **Chatbot phrases.** "I hope this helps!", "Let me know if...", "Of course!", "Certainly!", "Found the smoking gun!" Remove.
-21. **Cutoff disclaimers.** "While specific details are limited..." Find sources or remove.
-22. **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
+21. **Sycophantic tone.** "Great question! You're absolutely right!" Respond directly.
 
 #### Filler
 
@@ -122,3 +110,5 @@ Adding soul means your writing is not sterile or voiceless. To this end:
 29. **Active voice.** Prefer it. Catch "is/are/was/were + past participle" and name the actor: "queries are validated" becomes "the compiler validates queries", "the file is parsed by the loader" becomes "the loader parses the file". Passive is fine only when the actor is unknown or genuinely doesn't matter.
 30. **Cut adverbs, or use a stronger verb.** "runs quickly" becomes "is fast" or the number. "significantly improves" becomes the measured delta. An adverb propping up a weak verb means the verb is wrong.
 31. **Prefer the plain word.** "utilize" becomes "use", "leverage" becomes "use", "facilitate" becomes "help", "numerous" becomes "many", "in the event that" becomes "if". The fancier synonym is rarely clearer.
+32. **Mannered prose.** Metaphor or flourish where a literal phrase exists: aphorisms ("wire it or delete it"), rhetorical fragments for effect, personified code ("the plan holds it"), figurative verbs ("rides along", "stands on"), stock framing phrases. "A dial worth turning" becomes "a parameter worth varying". Say what you mean. Rule 26 covers the metaphor nouns.
+33. **Over-compression.** Dropped articles, verbless fragments, symbol-speak, and abbreviations that make the reader decode instead of read. "Parser rejects bad date → exit 2, no write" becomes "The parser rejects a bad date, exits with code 2, and writes nothing." Write whole sentences with their articles and verbs, and spell out arrows and abbreviations.
