@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate Callers, Delete Legacy APIs"
+  short_description: "Replace internal APIs without compatibility debt"
+  default_prompt: "Use $pstack-principle-migrate-callers-then-delete-legacy-apis to plan this internal API migration."

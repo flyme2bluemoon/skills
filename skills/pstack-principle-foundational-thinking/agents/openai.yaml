@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foundational Thinking"
+  short_description: "Choose sound core types and data structures"
+  default_prompt: "Use $pstack-principle-foundational-thinking to choose the core types and structures for this design."

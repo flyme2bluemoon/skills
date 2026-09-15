@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prove It Works"
+  short_description: "Match verification evidence to the claim"
+  default_prompt: "Use $pstack-principle-prove-it-works to verify this change with direct behavioral evidence."

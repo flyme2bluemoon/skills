@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unslop"
+  short_description: "Remove AI writing patterns while preserving tone"
+  default_prompt: "Use $unslop to revise this prose so it sounds natural while preserving its meaning and tone."

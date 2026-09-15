@@ -1,0 +1,4 @@
+interface:
+  display_name: "Outcome-Oriented Execution"
+  short_description: "Drive migrations toward the verified end state"
+  default_prompt: "Use $pstack-principle-outcome-oriented-execution to sequence this migration around its intended end state."

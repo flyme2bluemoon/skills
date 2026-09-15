@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build the Lever"
+  short_description: "Automate repetitive and rerunnable work"
+  default_prompt: "Use $pstack-principle-build-the-lever to find a reliable automation approach for this repetitive work."

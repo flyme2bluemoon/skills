@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fix Root Causes"
+  short_description: "Trace defects to their underlying cause"
+  default_prompt: "Use $pstack-principle-fix-root-causes to diagnose the root cause of this bug."

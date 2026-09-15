@@ -1,0 +1,4 @@
+interface:
+  display_name: "Laziness Protocol"
+  short_description: "Favor deletion and the smallest useful change"
+  default_prompt: "Use $pstack-principle-laziness-protocol to minimize this refactor and avoid unnecessary abstractions."

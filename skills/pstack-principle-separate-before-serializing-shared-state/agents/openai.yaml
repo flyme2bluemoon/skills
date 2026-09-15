@@ -1,0 +1,4 @@
+interface:
+  display_name: "Separate Before Serializing"
+  short_description: "Eliminate shared writes before adding locks"
+  default_prompt: "Use $pstack-principle-separate-before-serializing-shared-state to redesign this concurrent state ownership."

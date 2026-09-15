@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Behavior, Not Implementation"
+  short_description: "Test observable results through public interfaces"
+  default_prompt: "Use $pstack-principle-test-behavior-not-implementation to review and improve these tests."

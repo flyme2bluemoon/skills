@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make Operations Idempotent"
+  short_description: "Design operations that are safe to rerun"
+  default_prompt: "Use $pstack-principle-make-operations-idempotent to make this operation safe across retries and partial runs."

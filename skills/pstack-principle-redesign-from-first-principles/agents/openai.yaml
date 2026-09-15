@@ -1,0 +1,4 @@
+interface:
+  display_name: "Redesign from First Principles"
+  short_description: "Integrate requirements into a coherent design"
+  default_prompt: "Use $pstack-principle-redesign-from-first-principles to integrate this requirement into the design."

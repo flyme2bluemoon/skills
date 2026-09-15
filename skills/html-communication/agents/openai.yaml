@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Communication"
+  short_description: "Create standalone HTML write-ups and UI mocks"
+  default_prompt: "Use $html-communication to turn this content into a polished standalone HTML artifact."

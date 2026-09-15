@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subtract Before You Add"
+  short_description: "Remove complexity before extending a system"
+  default_prompt: "Use $pstack-principle-subtract-before-you-add to simplify this system before adding the new capability."

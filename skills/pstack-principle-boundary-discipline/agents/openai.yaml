@@ -1,0 +1,4 @@
+interface:
+  display_name: "Boundary Discipline"
+  short_description: "Concentrate validation at system boundaries"
+  default_prompt: "Use $pstack-principle-boundary-discipline to review validation and error handling in this change."

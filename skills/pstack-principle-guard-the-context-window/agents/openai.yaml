@@ -1,0 +1,4 @@
+interface:
+  display_name: "Guard the Context Window"
+  short_description: "Keep active context focused and useful"
+  default_prompt: "Use $pstack-principle-guard-the-context-window to keep this investigation focused on relevant evidence."

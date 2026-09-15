@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sequence Verifiable Units"
+  short_description: "Organize dependent work around clear checks"
+  default_prompt: "Use $pstack-principle-sequence-verifiable-units to split this migration into meaningful verified steps."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Encode Lessons in Structure"
+  short_description: "Prevent recurring mistakes with structure"
+  default_prompt: "Use $pstack-principle-encode-lessons-in-structure to prevent this recurring mistake mechanically."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Exhaust the Design Space"
+  short_description: "Compare concrete designs before committing"
+  default_prompt: "Use $pstack-principle-exhaust-the-design-space to explore competing designs for this decision."

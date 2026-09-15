@@ -1,0 +1,4 @@
+interface:
+  display_name: "Attack the Premise"
+  short_description: "Reassess assumptions behind repeated failures"
+  default_prompt: "Use $pstack-principle-attack-the-premise to reassess the assumption behind these repeated failures."

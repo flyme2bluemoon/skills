@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experience First"
+  short_description: "Prioritize a polished user experience"
+  default_prompt: "Use $pstack-principle-experience-first to evaluate these product and UX tradeoffs."

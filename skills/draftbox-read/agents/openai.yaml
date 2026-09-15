@@ -1,0 +1,4 @@
+interface:
+  display_name: "Read Draftbox"
+  short_description: "Read content from Draftbox artifact links"
+  default_prompt: "Use $draftbox-read to read and summarize this Draftbox artifact."

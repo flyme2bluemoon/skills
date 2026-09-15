@@ -1,0 +1,4 @@
+interface:
+  display_name: "Type System Discipline"
+  short_description: "Use types to make illegal states unrepresentable"
+  default_prompt: "Use $pstack-principle-type-system-discipline to strengthen the types and invariants in this design."

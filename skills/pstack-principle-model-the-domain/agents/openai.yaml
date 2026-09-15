@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model the Domain"
+  short_description: "Replace scattered branches with domain structures"
+  default_prompt: "Use $pstack-principle-model-the-domain to encode this stateful logic in a clearer domain model."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimize Reader Load"
+  short_description: "Reduce code indirection and hidden state"
+  default_prompt: "Use $pstack-principle-minimize-reader-load to make this code easier to trace and understand."
