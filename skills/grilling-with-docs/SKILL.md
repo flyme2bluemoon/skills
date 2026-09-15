@@ -1,6 +1,6 @@
 ---
 name: grilling-with-docs
-description: A relentless interview to sharpen a plan or design.
+description: Interview the user about a design and record confirmed domain language in CONTEXT.md. Use when both the interview and documentation are wanted.
 ---
 
 # Grilling with docs
@@ -11,7 +11,7 @@ This skill writes documentation only. It does not implement the resulting design
 
 ## Prepare the interview
 
-Load and follow the two supporting skills:
+Call the Skill tool with "grilling" and call the Skill tool with "domain-modeling". Apply them with these responsibilities:
 
 - `grilling` controls the interview, fact-finding, question rounds, recommendations, changed answers, and confirmation gate.
 - `domain-modeling` controls the meaning and format of `CONTEXT.md` and `CONTEXT-MAP.md`.

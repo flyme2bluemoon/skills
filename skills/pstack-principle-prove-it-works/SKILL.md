@@ -1,32 +1,16 @@
 ---
 name: pstack-principle-prove-it-works
-description: "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'"
+description: Choose direct evidence when a completion claim depends on runtime behavior, integration, or a delegated artifact.
 ---
 
-# Prove It Works
+# Prove it works
 
-Verify every task output by checking the real thing directly. Do not infer from proxies, self-reports, or "it compiles."
+Match evidence to the claim. A build checks compilation; a working feature requires evidence from its behavior. Inspect delegated artifacts directly before relying on a delegate's summary.
 
-**Why:** Unverified work has unknown correctness. Indirect verification (file mtimes, output freshness, agent self-reports, cached screenshots) feels cheaper than direct observation. Acting on a wrong inference costs far more than checking the source.
+Use the smallest check that covers the changed behavior and relevant failure modes. For an integration change, exercise the affected communication path. For a document edit, inspect the saved content, references, and diff. For live state, read the actual value or process rather than inferring it from timestamps or cached output.
 
-**Pattern:** After completing any task, ask: "how do I prove this actually works?"
+Use existing checks first. Add a rerunnable check when the comparison is complex or likely to recur. Complete required project checks, then stop testing once the relevant evidence passes. Broaden or repeat checks when changes, failures, or unresolved risks justify it.
 
-Check the real thing, not a proxy:
-- Check process liveness directly, not indirectly through derived state
-- Read the actual value, not a cached or derived representation
-- When verification fails, suspect the observation method before suspecting the system
+If verification fails, distinguish a defect in the result from a defect in the observation method. Fix failures caused by the requested change and rerun affected checks. If a check is unavailable, report what remains unverified and why.
 
-Code and features:
-1. Build it (necessary but not sufficient)
-2. Run it and exercise the actual feature path
-3. Check the full chain: does data flow from input to output?
-4. For integrations, test the full communication path end-to-end
-
-Delegation: trust artifacts, not self-reports.
-When verifying delegated work, inspect the actual output artifact (git diff, file contents, runtime behavior), not the delegate's summary. Agents report what they intended, not always what happened.
-
-## Script the check when you can
-
-The strongest proof is a deterministic script that re-runs the same comparison, not a one-time eyeball. Write the script, run it, and keep its output as an artifact a reviewer can re-run instead of trusting your word. A script comparing the old and new compiled output catches what a glance misses.
-
-Keep the artifact visible for the human. Commit it only for large or complex work where the trail has to be auditable later, like a big port or migration (the **show-me-your-work** skill). Most work just needs it visible, not committed.
+Finish by stating what was checked and what that evidence establishes. Static checks of a prompt's structure do not establish how well a model will follow it.

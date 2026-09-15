@@ -2,17 +2,31 @@
 
 This file outlines how the skills differ from their upstream counterparts.
 
+The prompt and routing revisions draw on OpenAI's [Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra). They preserve local preferences while reducing broad triggers, duplicated instructions, and mandatory procedures.
+
 ## pstack
 
 Github: https://github.com/cursor/plugins/tree/main/pstack/skills
 
 ### pstack-principle-\* (23 skills)
 
-The 23 principle skills have `disable-model-invocation: true` removed from each skill so Codex and Claude Code can invoke the matching principle automatically. `SYSTEM_AGENTS.md` also provides a broad, multi-select decision tree that routes agents to applicable principles.
+The 23 principle skills have `disable-model-invocation: true` removed so Codex and Claude Code can select applicable principles. `SYSTEM_AGENTS.md` uses task-specific selection rather than a mandatory catalog walkthrough.
+
+Several principles also differ behaviorally:
+
+- `build-the-lever` chooses automation when repetition or reproducible evidence justifies it. It allows existing tools and direct edits instead of requiring a new artifact for all nontrivial work.
+- `prove-it-works` matches verification to the claim, prefers existing checks, and stops after relevant and required checks pass. It distinguishes structural prompt validation from behavioral evaluation.
+- `sequence-verifiable-units` permits mechanical batches at meaningful verification boundaries and follows the project's Git workflow. It does not require a rebase or a check after every individual edit.
+- `never-block-on-the-human` preserves explicit approval rules and existing authorization while allowing scoped, reversible execution to continue.
+- `guard-the-context-window` supports filtered reads and optional delegation, and moves branch-specific detail behind contextual references.
+- `attack-the-premise` chooses evidence for the actual failing assumption. Actor imbalance is one diagnostic case rather than a required explanation for every repeated failure.
+- `encode-lessons-in-structure` targets demonstrated recurring mistakes, keeps enforcement proportional, and uses existing skills, `AGENTS.md`, or `CONTEXT.md` for durable guidance rather than personal memory notes.
+
+The import helper generates temporary review copies. It does not overwrite local adaptations or copy style rules into `SYSTEM_AGENTS.md`.
 
 ### unslop
 
-It remains model-invocable because other skills call it as a workflow dependency.
+It remains model-invocable because other skills call it as a workflow dependency. Its description targets substantive prose editing. The numbered style rules remain intact; `SYSTEM_AGENTS.md` keeps only a short baseline and a task-specific invocation.
 
 ## Matt Pocock skills
 
@@ -46,23 +60,25 @@ This is a full redesign of upstream `grill-with-docs`. The upstream skill is a t
 - It reads existing context and relevant code before and after the interview.
 - It keeps all proposed documentation changes in the conversation until the design tree is closed and the user confirms the final summary.
 - It writes confirmed domain language to `CONTEXT.md`. It does not use ADRs.
-- It can be selected through its description like an ordinary skill. The local upstream copy disables model invocation and must be called explicitly.
+- It can be selected through its description like an ordinary skill. The description distinguishes interviewing plus documentation from an interview alone. The local upstream copy disables model invocation and must be called explicitly.
 - A conflict found before writing reopens the interview and requires another confirmation.
 - Partial or discarded interviews do not change documentation.
 - Context documentation is updated only where the confirmed domain language belongs. The workflow does not create placeholder files and does not implement the design.
 
 ### writing-for-agents
 
-The main `SKILL.md` and `agents/openai.yaml` are unchanged. The adaptation changes only `SKILL-MECHANICS.md`:
+The main `SKILL.md` now emphasizes task outcomes, precise discovery, conditional references, explicit authorization, and evaluation against representative requests. It removes the upstream theory-heavy writing model and fixed-process framing while retaining single-source guidance, contextual pointers, co-location, and pruning. `agents/openai.yaml` is unchanged.
+
+`SKILL-MECHANICS.md` also differs:
 
 - It pairs `disable-model-invocation: true` with `policy.allow_implicit_invocation: false` when defining a user-invoked skill. Model-invocable skills are discoverable and callable through the Skill tool; user-invoked skills are neither.
-- Skill-to-skill workflows use `Call the Skill tool with "<skill-name>"`, and only model-invocable skills can be targets. A relative link discloses reference material rather than invoking a workflow.
+- Skill-to-skill workflows use `Call the Skill tool with "<skill-name>"`, and only model-invocable skills can be targets. A relative link discloses reference material rather than invoking a workflow. Runtimes without a Skill tool use their supported skill-loading mechanism while preserving explicit-only restrictions.
 
 ### codebase-design
 
 Keeps the upstream deep-module vocabulary, deletion test, seam discipline, dependency categories, and design-it-twice comparison. The adaptation changes invocation and agent coordination:
 
-- Model invocation is enabled so other local skills can call it through the Skill tool convention.
+- Model invocation is enabled so other local skills can call it through the Skill tool convention. The description targets module responsibilities and interface design.
 - Users can still invoke it explicitly in both Claude Code and Codex.
 - Design-it-twice uses parallel subagents when the agent supports them and sequential independent designs otherwise.
 

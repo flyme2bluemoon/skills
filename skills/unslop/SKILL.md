@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Cut AI tells from any writing. Use whenever you are writing prose targeting a human.
+description: Edit substantive human-facing prose to remove AI writing patterns while preserving meaning and tone.
 ---
 
 # Unslop

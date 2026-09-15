@@ -1,22 +1,14 @@
 ---
 name: pstack-principle-attack-the-premise
-description: "Apply when two or more fixes that share one premise have failed the same gate. Take a census of which actors hold the imbalance before the next fix, then question the premise instead of writing another fix that assumes it."
+description: Reassess a shared assumption when repeated fixes fail the same check.
 ---
 
-# Attack the Premise
+# Attack the premise
 
-When two or more fixes that share one premise have failed the same gate, suspect the premise, not the fixes.
+When repeated fixes based on the same assumption fail, state that assumption and identify an observation that could disprove it before attempting another fix.
 
-**Why:** Each failure under a shared premise is evidence about the premise.
+Choose the observation for the actual failure. For uneven load or resource ownership, measure the distribution across actors and inspect how roles are assigned. For other failures, inspect the relevant input, state transition, dependency, or contract. Build a rerunnable measurement when the result needs comparison across runs.
 
-**Pattern:**
-- **Write the premise down.** The premise is the one sentence that every failed fix assumed.
-- **Take a census before the next fix.** Count the imbalance per actor. The census shows which actors hold the imbalance, not how large it is. Write the census as a rerunnable script per [Build the Lever](../pstack-principle-build-the-lever/SKILL.md).
-- **Read the skew.** If the same few actors hold most of the imbalance on every run, something assigns them that role. Find what assigns the role. That assignment is the next "why" per [Fix Root Causes](../pstack-principle-fix-root-causes/SKILL.md).
-- **Remove the asymmetry instead of compensating for it**, per the [Laziness Protocol](../pstack-principle-laziness-protocol/SKILL.md). Rotate the role between actors, randomize the assignment, or move the role, so that no actor holds it on every run. A return path, a shared pool, a batched hand-off, or a periodic rebalance leaves the assignment in place and adds work on every run.
+Interpret the evidence narrowly. An even distribution can rule out a particular imbalance; it does not prove every assumption correct. If role assignment causes the defect, consider changing ownership or assignment rather than repeatedly compensating for it.
 
-**Stop:**
-- Do not start the next fix before the premise is written down and the census exists.
-- If the census is even across actors, the premise is not the cause. Look for the cause elsewhere and keep the census as evidence.
-
-This principle is distinct from [Redesign from First Principles](../pstack-principle-redesign-from-first-principles/SKILL.md), which rebuilds a design around a new requirement. It questions a fact the current design assumes.
+Resume implementation when the evidence supports a revised explanation or identifies the next discriminating check. Keep the premise and findings in the conversation unless the project already has a suitable record.

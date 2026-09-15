@@ -1,6 +1,6 @@
 ---
 name: codebase-design
-description: Design deep modules with small interfaces, clean seams, and tests through the interface.
+description: Design or refactor module interfaces to hide complexity and improve testability. Use when choosing module responsibilities or comparing interfaces.
 ---
 
 # Codebase Design

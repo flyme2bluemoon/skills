@@ -17,7 +17,7 @@ bunx --bun skills add https://github.com/flyme2bluemoon/skills
 
 ### unslop
 
-Claude seems be less eager to call the unslop tool compared to Codex so you may need to add something like this to your `{CLAUDE,AGENTS}.md`: "Call the Skill tool with \"unslop\" before responding to the user."
+For substantive prose drafting or editing, call the Skill tool with "unslop". `SYSTEM_AGENTS.md` keeps a short style baseline for ordinary responses.
 
 ### html-communication
 
@@ -39,10 +39,16 @@ Many of my skills are ~~stolen~~ heavily inspired from the following:
 
 ## system agent instructions
 
-Some agents (_ahem Claude_) require a little encouragement to actually use the SKILLS. Therefore, I have left my global `AGENTS.md` file here in `SYSTEM_AGENTS.md`. It can either be copied to `~/.agents` and `~/.claude` or it can simply be symlinked.
+`SYSTEM_AGENTS.md` contains my personal preferences, execution boundaries, and task-specific skill guidance. It can be copied or symlinked to the instruction locations used by your agents.
 
 ```sh
 mkdir -p ~/.agents ~/.claude
 ln -sf "$(pwd)/SYSTEM_AGENTS.md" ~/.agents/AGENTS.md
 ln -sf "$(pwd)/SYSTEM_AGENTS.md" ~/.claude/CLAUDE.md
 ```
+
+## updating pstack adaptations
+
+Run `bash scripts/adapt-pstack-skills.sh` to generate upstream review copies in a temporary directory. Compare them with `skills/` and apply relevant changes manually. The helper preserves local adaptations and does not modify `SYSTEM_AGENTS.md`.
+
+Verify the import helper with `python3 -m unittest discover -s scripts -v`. Tests use an isolated temporary repository and need no additional packages.

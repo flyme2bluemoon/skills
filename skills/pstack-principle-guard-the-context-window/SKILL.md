@@ -1,16 +1,14 @@
 ---
 name: pstack-principle-guard-the-context-window
-description: "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads."
+description: Reduce context pressure from large outputs, broad exploration, or repeated reads.
 ---
 
-# Guard the Context Window
+# Guard the context window
 
-The context window is finite and non-renewable within a session. Every token that enters should earn its place.
+Keep decision-relevant evidence in the active context. Search and read bounded sections before requesting entire files or large tool outputs. Save bulky intermediate results outside the conversation and retrieve the parts needed for the next decision.
 
-**Why:** Context overflow degrades reasoning quality, creates compression artifacts, and halts progress. Unlike compute or time, context spent inside a session cannot be reclaimed.
+Use subagents for independent bulk analysis when delegation is available, authorized, and worth its coordination cost. Give them a bounded question and request findings with source locations. Direct filtered reads are sufficient for smaller work.
 
-**Pattern:**
-- **Isolate large payloads.** Route verbose outputs, screenshots, and large documents to subagents. The main context gets summaries, not raw data.
-- **Don't read what you won't use.** Read selectively based on relevance. If a file isn't needed for the current task, skip it.
-- **Keep frequently used content inline.** Templates and references used on every invocation belong in the skill file, not in separate files that cost a read each time.
-- **Size phases and cap scope.** Limit files per phase, set turn budgets, account for mechanism costs.
+Keep shared constraints in a skill's entrypoint. Disclose substantial branch-specific detail through references that say when to read them. Avoid rereading unchanged material already available in context.
+
+Before a handoff or compaction, preserve the objective, constraints, decisions, completed checks, and next unresolved step using the environment's supported mechanism.
