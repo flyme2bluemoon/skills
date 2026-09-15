@@ -64,12 +64,12 @@ Keeps the upstream deep-module vocabulary, deletion test, seam discipline, depen
 
 ### improve-codebase-architecture
 
-Keeps the upstream hotspot-led scan, friction questions, deletion test, candidate cards, visual comparison, and recommendation strengths. The adaptation narrows the workflow and makes it portable:
+The adaptation makes the workflow portable and matches this repository's approved paper trail:
 
-- The skill is a project-read-only survey. It stops after the report and does not grill, edit `CONTEXT.md`, create ADRs, propose interfaces, or implement a candidate.
-- It reads the local `codebase-design` adaptation through a relative file reference rather than a runtime-specific skill call.
-- Codebase exploration uses available tools, with delegation optional rather than requiring a particular subagent command.
-- Every report uses the local `html-communication` skill. That skill owns the Tailwind CDN, Mermaid CDN, and visual-report guidance; the upstream temp-directory, browser-opening, and `HTML-REPORT.md` workflow is removed.
+- The grilling loop updates settled domain language only when `CONTEXT.md` already exists. It does not create the file.
+- When exploring alternative interfaces for a deepening candidate, it calls `codebase-design` and runs that skill's design-it-twice workflow. It stops at design comparison and does not implement the refactor.
+- Codebase exploration uses ordinary tools. Delegation is optional and does not require a particular subagent command.
+- Every report uses the local `html-communication` skill for Tailwind CDN, Mermaid CDN, and visual-report guidance. The upstream temp-directory, browser-opening, and `HTML-REPORT.md` workflow is removed.
 - Model invocation is disabled for both Claude Code and Codex.
 
 ## anti-slop

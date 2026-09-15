@@ -1,6 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Survey a codebase for deepening opportunities and present them as a visual HTML report.
+description: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
 disable-model-invocation: true
 ---
 
@@ -10,7 +10,7 @@ Surface architectural friction and propose **deepening opportunities**: refactor
 
 This survey is informed by the project's domain model and built on a shared design vocabulary:
 
-- Read and follow [codebase-design](../codebase-design/SKILL.md) for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion, and don't drift into "component," "service," "API," or "boundary."
+- Call the Skill tool with "codebase-design" for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion, and don't drift into "component," "service," "API," or "boundary."
 - The domain language in `CONTEXT.md` gives names to good seams.
 
 ## Process
@@ -36,7 +36,7 @@ Apply the **deletion test** to anything you suspect is shallow: would deleting i
 
 ### 2. Present candidates as an HTML report
 
-Read and follow [html-communication](../html-communication/SKILL.md) to create the report. This dependency is required. If it is unavailable, stop and tell the user instead of generating the report another way.
+Call the Skill tool with "html-communication" to create the report.
 
 Each candidate gets a **before/after visualisation**. Use a graph, flow, sequence, or custom diagram when it makes the structural change easier to understand.
 
@@ -53,4 +53,17 @@ End the report with a **Top recommendation** section: which candidate you'd tack
 
 **Use `CONTEXT.md` vocabulary for the domain, and the `codebase-design` vocabulary for the architecture.** If `CONTEXT.md` defines "Order," talk about "the Order intake module," not "the FooBarHandler," and not "the Order service."
 
-Do not propose interfaces, interview the user, edit project files, or implement a candidate. After the report is written, give the user its resolved path, ask "Which of these would you like to take forward?", and stop. The survey is complete when the report exists, the path has been reported, and no project file has changed.
+Do NOT propose interfaces yet. After the report is written, give the user its resolved path and ask: "Which of these would you like to explore?"
+
+### 3. Grilling loop
+
+Once the user picks a candidate, call the Skill tool with "grilling" to walk the decision tree with them: constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
+
+When `CONTEXT.md` exists, call the Skill tool with "domain-modeling" to keep it current as decisions crystallize:
+
+- **Naming a deepened module after a concept not in `CONTEXT.md`?** Add the term to the existing `CONTEXT.md`.
+- **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
+
+When `CONTEXT.md` does not exist, keep settled domain language in the conversation.
+
+When the user wants to explore alternative interfaces for the deepened module, call the Skill tool with "codebase-design" and use its bundled design-it-twice workflow.
