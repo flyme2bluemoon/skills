@@ -66,32 +66,14 @@ Render the proposed interfaces in the HTML at a useful level of visual detail.
 
 When showing multiple variants, label them A, B, C, and so on. Place them in a shared comparison layout so the user can scan the differences in one view.
 
-## Finish locally
+## Wrapping up
 
-Inspect the saved source with filesystem and text tools for malformed markup, missing content, and broken local references.
+Inspect the saved source with filesystem and text tools for malformed markup, missing content, broken local references, and sensitive or private information: secrets, personal data, or confidential material.
 
-Always report the resolved local path to the HTML file.
-
-## Publish to Postplan
-
-Upload when the user explicitly asks to publish or upload the artifact to Postplan. Postplan is operated by a third party, and uploaded URLs are publicly accessible. Check the artifact before uploading it. Treat every upload as permanent because Postplan provides no way to delete uploaded files. Upload public, non-sensitive information. Keep artifacts containing secrets, personal data, or confidential material local, and tell the user why. Confirm the exact file and its contents before running the upload command.
-
-Upload public, non-sensitive information. Keep artifacts containing secrets, personal data, or confidential material local, and tell the user why.
-
-After the safety check, write the local file first, then run:
+Upload the artifact to Draftbox by default. Keep a sensitive or private artifact local, and tell the user why.
 
 ```sh
-pnpx postplan upload <file.html>
+pnpx draftbox upload <file.html>
 ```
 
-Available upload controls:
-
-```text
---draft <draft-id>    Update a specific draft
---new                 Always create a new draft
---description <text>  Set a short description for the draft
-```
-
-Match upload options to the user's request. If authentication fails, ask the user to run `postplan auth login`. Report the artifact as hosted after the command succeeds and returns its URL.
-
-After a successful upload, report both the local path and the Postplan URL returned by the command. If it fails for another reason, report the local path and the upload error.
+Always report the resolved local path to the HTML file. If the upload succeeds, also report the Draftbox URL returned by the command. If it fails, tell the user what went wrong.
