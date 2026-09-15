@@ -37,5 +37,5 @@ Treat any other paper trail as unevaluated. Redesign around the approved files o
 
 ## Guidelines for adapting pstack skills
 
-- Prefix every skill copied or adapted from pstack with `pstack-` in both its directory name and frontmatter `name` (for example, `unslop` becomes `pstack-unslop`).
+- Prefix every skill copied or adapted from pstack with `pstack-` in both its directory name and frontmatter `name`, except `unslop`, which keeps its upstream name.
 - Many of Lauren's pstack skills are Cursor specific. Make sure that they are made to work with the tools I use: Codex and Claude Code. However, I still want my skills to be written in a way where they are very portable to any AI agent that I may want to test out.

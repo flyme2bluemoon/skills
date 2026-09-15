@@ -1,5 +1,5 @@
 ---
-name: pstack-unslop
+name: unslop
 description: Cut AI tells from any writing. Use whenever you are writing prose targeting a human.
 ---
 
