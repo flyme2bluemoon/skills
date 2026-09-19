@@ -74,7 +74,7 @@ async function main(): Promise<void> {
   }
 
   process.stdout.write(
-    `Review copies: ${outputRoot}\nCompare with skills/ before applying upstream changes.\n`,
+    `Review copies: ${outputRoot}\nCompare with skills/pstack/ before applying upstream changes.\n`,
   );
 }
 

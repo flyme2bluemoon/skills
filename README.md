@@ -49,4 +49,4 @@ ln -sf "$(pwd)/SYSTEM_AGENTS.md" ~/.claude/CLAUDE.md
 
 ## updating pstack adaptations
 
-Run `pnpm adapt-pstack-skills` to generate upstream review copies in a temporary directory. Compare them with `skills/` and apply relevant changes manually. The helper preserves local adaptations and does not modify `SYSTEM_AGENTS.md`.
+Run `pnpm adapt-pstack-skills` to generate upstream review copies in a temporary directory. Compare them with `skills/pstack/` and apply relevant changes manually. The helper preserves local adaptations and does not modify `SYSTEM_AGENTS.md`.

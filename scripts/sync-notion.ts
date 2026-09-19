@@ -192,24 +192,35 @@ async function parseSkill(path: string): Promise<Skill> {
   };
 }
 
+async function listSkillMarkdownPaths(dir: string): Promise<string[]> {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const skillMd = join(dir, SKILL_FILE);
+  if (existsSync(skillMd)) {
+    return [skillMd];
+  }
+
+  const nested: string[] = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    nested.push(...(await listSkillMarkdownPaths(join(dir, entry.name))));
+  }
+  return nested;
+}
+
 async function discoverSkills(root: string, slugs?: string[]): Promise<Skill[]> {
   const skillsRoot = join(root, SKILLS_DIRNAME);
   const wanted = slugs ? new Set(slugs) : undefined;
-  const entries = (await readdir(skillsRoot, { withFileTypes: true }))
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
+  const skillPaths = (await listSkillMarkdownPaths(skillsRoot)).sort();
 
   const found: Skill[] = [];
-  for (const slug of entries) {
-    if (wanted && !wanted.has(slug)) {
+  for (const skillMd of skillPaths) {
+    const skill = await parseSkill(skillMd);
+    if (wanted && !wanted.has(skill.slug)) {
       continue;
     }
-    const skillMd = join(skillsRoot, slug, SKILL_FILE);
-    if (!existsSync(skillMd)) {
-      continue;
-    }
-    found.push(await parseSkill(skillMd));
+    found.push(skill);
   }
 
   if (wanted) {
