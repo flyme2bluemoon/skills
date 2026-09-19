@@ -11,6 +11,7 @@
     "node": ">=22.18"
   },
   "scripts": {
+    "install": "pnpx skills add . -g -y --agent codex --agent claude-code",
     "sync-notion": "node scripts/sync-notion.ts",
     "adapt-pstack-skills": "node scripts/adapt-pstack-skills.ts"
   },
