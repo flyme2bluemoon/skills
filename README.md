@@ -49,6 +49,4 @@ ln -sf "$(pwd)/SYSTEM_AGENTS.md" ~/.claude/CLAUDE.md
 
 ## updating pstack adaptations
 
-Run `bash scripts/adapt-pstack-skills.sh` to generate upstream review copies in a temporary directory. Compare them with `skills/` and apply relevant changes manually. The helper preserves local adaptations and does not modify `SYSTEM_AGENTS.md`.
-
-Verify the import helper with `python3 -m unittest discover -s scripts -v`. Tests use an isolated temporary repository and need no additional packages.
+Run `pnpm adapt-pstack-skills` to generate upstream review copies in a temporary directory. Compare them with `skills/` and apply relevant changes manually. The helper preserves local adaptations and does not modify `SYSTEM_AGENTS.md`.
