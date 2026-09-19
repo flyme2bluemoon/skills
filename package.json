@@ -1,0 +1,21 @@
+{
+  "name": "agent-skills",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyme2bluemoon/skills.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "sync-notion": "node scripts/sync-notion.ts",
+    "adapt-pstack-skills": "node scripts/adapt-pstack-skills.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
+}
