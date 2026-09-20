@@ -1,0 +1,12 @@
+[submodule "skills-examples/anti-slop"]
+	path = skills-examples/anti-slop
+	url = git@github.com:dmmulroy/anti-slop.git
+[submodule "skills-examples/cursor-plugins"]
+	path = skills-examples/cursor-plugins
+	url = git@github.com:cursor/plugins.git
+[submodule "skills-examples/deepmind-science-skills"]
+	path = skills-examples/deepmind-science-skills
+	url = git@github.com:google-deepmind/science-skills.git
+[submodule "skills-examples/matt-pocock-skills"]
+	path = skills-examples/matt-pocock-skills
+	url = git@github.com:mattpocock/skills.git

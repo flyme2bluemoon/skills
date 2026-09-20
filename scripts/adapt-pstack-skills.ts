@@ -47,7 +47,7 @@ function adaptMarkdown(source: string, target: string, local: string): string {
 async function main(): Promise<void> {
   const upstreamRoot =
     process.env.PSTACK_SKILLS_ROOT ??
-    join(repoRoot(), "skills-examples/pstack/pstack/skills");
+    join(repoRoot(), "skills-examples/cursor-plugins/pstack/skills");
   const targets = process.argv.slice(2).length > 0 ? process.argv.slice(2) : DEFAULT_TARGETS;
 
   for (const target of targets) {
