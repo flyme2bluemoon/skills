@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Disclosure"
+  short_description: "Disclose AI authorship on public posts"
+  default_prompt: "Use $ai-disclosure to disclose that an AI wrote this before it is posted."

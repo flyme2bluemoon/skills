@@ -28,6 +28,10 @@ mkdir -p ~/.config/matthew-skills
 echo 'ARTIFACTS_DIR="$HOME/Developer/postplan/artifacts"' > ~/.config/matthew-skills/config
 ```
 
+### ai-disclosure
+
+When an agent posts or sends text to other people on your behalf, it should load this skill and disclose that an AI wrote it.
+
 ## credits
 
 Many of my skills are ~~stolen~~ heavily inspired from the following:
@@ -36,6 +40,7 @@ Many of my skills are ~~stolen~~ heavily inspired from the following:
 - [Skills by Matt Pocock](https://github.com/mattpocock/skills)
 - [anti-slop](https://github.com/dmmulroy/anti-slop) by Dillon Mulroy
 - `html-communication` and `draftbox-read`, inspired by [Theo's video](https://www.youtube.com/watch?v=e1snsuY4lTI&t=560s)
+- `ai-disclosure`, inspired by the attribution practice in [t3code](https://github.com/pingdotgg/t3code)
 
 ## system agent instructions
 
