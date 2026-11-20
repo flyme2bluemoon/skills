@@ -71,14 +71,13 @@ The main `SKILL.md` now emphasizes task outcomes, precise discovery, conditional
 
 `SKILL-MECHANICS.md` also differs:
 
-- It pairs `disable-model-invocation: true` with `policy.allow_implicit_invocation: false` when defining a user-invoked skill. Model-invocable skills are discoverable and callable through the Skill tool; user-invoked skills are neither.
-- Skill-to-skill workflows use `Call the Skill tool with "<skill-name>"`, and only model-invocable skills can be targets. A relative link discloses reference material rather than invoking a workflow. Runtimes without a Skill tool use their supported skill-loading mechanism while preserving explicit-only restrictions.
+- It pairs `disable-model-invocation: true` with `policy.allow_implicit_invocation: false` when defining a user-invoked skill, so the policy holds in both Claude Code and Codex.
 
 ### codebase-design
 
 Keeps the upstream deep-module vocabulary, deletion test, seam discipline, dependency categories, and design-it-twice comparison. The adaptation changes invocation and agent coordination:
 
-- Model invocation is enabled so other local skills can call it through the Skill tool convention. The description targets module responsibilities and interface design.
+- Model invocation is enabled so other local skills can invoke it. The description targets module responsibilities and interface design.
 - Users can still invoke it explicitly in both Claude Code and Codex.
 - Design-it-twice uses parallel subagents when the agent supports them and sequential independent designs otherwise.
 
@@ -104,11 +103,7 @@ The installation workflow, script, and bundled Oxlint plugin are unchanged. The 
 
 Github: https://github.com/t3dotgg/tstack/tree/main/skills
 
-`full-send`, `council`, `sol-loop`, `file-pr`, `babysit-pr`, and `leaving-pr-comments` have no behavioral differences. `council`, `sol-loop`, `file-pr`, and `babysit-pr` gain `agents/openai.yaml` metadata for Codex, which upstream does not ship for them.
-
-### full-stop
-
-Upstream reads `full-send` through a relative link to its `SKILL.md`. The adaptation calls the Skill tool with "full-send" and then applies the same no-merge and stop-at-the-gate overrides, so it no longer depends on the two skills being installed as sibling directories.
+`full-send`, `full-stop`, `council`, `sol-loop`, `file-pr`, `babysit-pr`, and `leaving-pr-comments` have no behavioral differences. `council`, `sol-loop`, `file-pr`, and `babysit-pr` gain `agents/openai.yaml` metadata for Codex, which upstream does not ship for them.
 
 ## Theo's SKILLS.md video
 

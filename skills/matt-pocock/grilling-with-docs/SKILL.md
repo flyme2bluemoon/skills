@@ -11,7 +11,7 @@ This skill writes documentation only. It does not implement the resulting design
 
 ## Prepare the interview
 
-Call the Skill tool with "grilling" and call the Skill tool with "domain-modeling". Apply them with these responsibilities:
+Call the Skill tool twice, for "grilling" and "domain-modeling". Apply them with these responsibilities:
 
 - `grilling` controls the interview, fact-finding, question rounds, recommendations, changed answers, and confirmation gate.
 - `domain-modeling` controls the meaning and format of `CONTEXT.md` and `CONTEXT-MAP.md`.
