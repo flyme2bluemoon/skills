@@ -10,3 +10,6 @@
 [submodule "skills-examples/matt-pocock-skills"]
 	path = skills-examples/matt-pocock-skills
 	url = git@github.com:mattpocock/skills.git
+[submodule "skills-examples/tstack"]
+	path = skills-examples/tstack
+	url = git@github.com:t3dotgg/tstack.git

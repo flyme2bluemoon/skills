@@ -100,6 +100,16 @@ Github: https://github.com/dmmulroy/anti-slop/tree/main/skills/install-anti-slop
 
 The installation workflow, script, and bundled Oxlint plugin are unchanged. The local copy is explicit-only in Claude Code and Codex because it is a one-time repository setup skill.
 
+## tstack
+
+Github: https://github.com/t3dotgg/tstack/tree/main/skills
+
+`full-send`, `council`, `sol-loop`, `file-pr`, `babysit-pr`, and `leaving-pr-comments` have no behavioral differences. `council`, `sol-loop`, `file-pr`, and `babysit-pr` gain `agents/openai.yaml` metadata for Codex, which upstream does not ship for them.
+
+### full-stop
+
+Upstream reads `full-send` through a relative link to its `SKILL.md`. The adaptation calls the Skill tool with "full-send" and then applies the same no-merge and stop-at-the-gate overrides, so it no longer depends on the two skills being installed as sibling directories.
+
 ## Theo's SKILLS.md video
 
 These skills were rewritten using many of the ideas from his video.
