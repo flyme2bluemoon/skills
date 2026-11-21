@@ -103,7 +103,11 @@ The installation workflow, script, and bundled Oxlint plugin are unchanged. The 
 
 Github: https://github.com/t3dotgg/tstack/tree/main/skills
 
-`full-send`, `full-stop`, `council`, `sol-loop`, `file-pr`, `babysit-pr`, and `leaving-pr-comments` have no behavioral differences. `council`, `sol-loop`, `file-pr`, and `babysit-pr` gain `agents/openai.yaml` metadata for Codex, which upstream does not ship for them.
+`full-send`, `full-stop`, `sol-loop`, `file-pr`, `babysit-pr`, and `leaving-pr-comments` have no behavioral differences. `council`, `sol-loop`, `file-pr`, and `babysit-pr` gain `agents/openai.yaml` metadata for Codex, which upstream does not ship for them.
+
+### council
+
+Updates the Gemini example model from `Gemini Pro` to `Gemini 4 Neon`.
 
 ## Theo's SKILLS.md video
 
