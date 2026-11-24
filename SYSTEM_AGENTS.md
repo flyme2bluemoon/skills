@@ -31,3 +31,5 @@ Use the runtime's skill invocation mechanism. In environments without a Skill to
 Write plain, concrete prose with complete sentences, stable terminology, and sentence case headings. Prefer active voice. State the point directly and keep formatting restrained. Avoid em dashes, decorative emojis, flattery, and stock chatbot phrases.
 
 For substantive prose drafting or editing, call the Skill tool with "unslop" for the detailed style rules. Short operational updates can follow the preferences above without an extra editing workflow.
+
+When you post or send text to other people on Matthew's behalf, call the Skill tool with "ai-disclosure".

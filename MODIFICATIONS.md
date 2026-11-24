@@ -112,3 +112,13 @@ Updates the Gemini example model from `Gemini Pro` to `Gemini 4 Neon`.
 ## Theo's SKILLS.md video
 
 These skills were rewritten using many of the ideas from his video.
+
+## t3code attribution
+
+`ai-disclosure` was written from the public attribution practice in [pingdotgg/t3code](https://github.com/pingdotgg/t3code). There is no upstream skill. Local choices:
+
+- GitHub comments open with a note callout that names the model and Matthew.
+- Pull request descriptions and commit messages end with a footer that names the model and harness.
+- Slack, email, and other plain-text destinations use a one-line form.
+- Text Matthew wrote, and messages he asks to send unsigned, stay unsigned.
+- A destination's own attribution rule replaces this format when the two differ.
